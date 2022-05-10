@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useState }  from 'react';
+import Mak from './Mak';
+import Tharath from './Tharath';
 
 function App() {
+
+  const [section, setSection] = useState('hola');
+
+  function showHola(){
+    setSection('hola');
+  }
+
+  function showMak(){
+    setSection('mak');
+  }
+
+  function showTharath(){
+    setSection('tharath');
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <button onClick={ showHola }>Hola</button>
+      <button onClick={ showMak }>Mak</button>
+      <button onClick={ showTharath }>Tharath</button>
+      { section === 'hola' && <h1>Hola</h1> }
+      { section === 'mak' && <Mak /> }
+      { section === 'tharath' && <Tharath /> }
     </div>
   );
 }
